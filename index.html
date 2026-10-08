@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yahya Tourabi — Full Stack Developer Portfolio</title>
+<meta name="description" content="Portfolio of Yahya Tourabi, a Full Stack Developer building clean, reliable web applications with modern JavaScript, Python and Laravel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="#home" class="navbar__brand">Yahya<span>Tourabi</span></a>
+
+    <nav class="navbar__nav" id="navMenu">
+      <ul class="navbar__list">
+        <li><a href="#home" class="nav-link active-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="navbar__toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero__inner">
+      <div  class="hero__photo-wrap" data-animate="fade-in">
+        <img src="/public/images/me.jpg" alt="Portrait of Yahya Tourabi " class="hero__photo" >
+      </div>
+
+      <div class="hero__content" data-animate="slide-up">
+        <p class="hero__eyebrow">Hello, I'm</p>
+        <h1 class="hero__name">Yahya Tourabi</h1>
+        <p class="hero__role">Full Stack Developer</p>
+        <p class="hero__intro">
+          I design and build complete web applications — from responsive interfaces
+          to the servers and databases behind them. I care about clean code,
+          fast performance and interfaces people enjoy using.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary">View My Projects</a>
+          <a href="#contact" class="btn btn--outline">Contact Me</a>
+        </div>
+
+        <div class="hero__socials">
+          <a href="https://github.com/yahiatourabi58-hash" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="social-link">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.66.5 12.03c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.77.12 3.06.74.8 1.19 1.83 1.19 3.09 0 4.44-2.7 5.42-5.27 5.7.42.36.78 1.07.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.53 10.53 0 0 0 23.5 12.03C23.5 5.66 18.35.5 12 .5Z"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/yahya-tourabi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="social-link">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll-cue" aria-label="Scroll to About section"><span></span></a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="section__inner">
+      <div class="section__heading" data-animate="fade-in">
+        <h2>About Me</h2>
+        <p class="section__lede">A little about who I am and how I got here.</p>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__block" data-animate="fade-in">
+          <h3>Introduction</h3>
+          <p>
+            I'm Yahya, a 20-year-old developer from Tangier,Morocco. 
+            I started my journey in web development because
+            I enjoy solving problems and building things from scratch.
+            I'm currently developing my skills in both front-end and back-end development,
+             with the goal of becoming a Full Stack Developer.
+          </p>
+        </div>
+
+        <div class="about__block" data-animate="fade-in">
+          <h3>My Journey</h3>
+          <p>
+            I started learning web development last year, beginning
+             with the fundamentals and gradually discovering different technologies
+            and tools. Since then, I've been learning by practicing, building projects,
+             and trying to understand how things work rather than just copying code.
+              Every project gives me a chance to improve my skills and learn something new.
+          </p>
+        </div>
+
+        <div class="about__block" data-animate="fade-in">
+          <h3>Interests</h3>
+          <p>
+            Outside of coding, I enjoy problem solving, traveling, doing sports,
+             and gaming from time to time. I also like discovering new technologies 
+             and learning new ways to build better and more useful applications.
+          </p>
+        </div>
+
+        <div class="about__block" data-animate="fade-in">
+          <h3>Goals</h3>
+          <p>
+            My main goal is to become a skilled Full Stack Developer and keep improving
+            my technical skills. I also want to build a project that I'm proud of and turn it
+            into something successful and useful for people. For me, the goal is not just
+            to learn technologies, but to use them to create real projects.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="skills" id="skills">
+    <div class="section__inner">
+      <div class="section__heading" data-animate="fade-in">
+        <h2>Skills</h2>
+        <p class="section__lede">Technologies I work with, day to day.</p>
+      </div>
+    </div>
+
+    <div class="marquee" id="marquee">
+      <div class="marquee__track" id="marqueeTrack">
+        <ul class="marquee__list" id="marqueeList">
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" width="34" height="34" loading="lazy"><span>HTML</span></li>
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" width="34" height="34" loading="lazy"><span>CSS</span></li>
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" width="34" height="34" loading="lazy"><span>JavaScript</span></li>
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" width="34" height="34" loading="lazy"><span>Bootstrap</span></li>
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" width="34" height="34" loading="lazy"><span>Tailwind CSS</span></li>
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React.js" width="34" height="34" loading="lazy"><span>React.js</span></li>
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel" width="34" height="34" loading="lazy"><span>Laravel</span></li>
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" width="34" height="34" loading="lazy"><span>Python</span></li>
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" width="34" height="34" loading="lazy"><span>C</span></li>
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" width="34" height="34" loading="lazy"><span>Git</span></li>
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" width="34" height="34" loading="lazy"><span>Figma</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="projects" id="projects">
+    <div class="section__inner">
+      <div class="section__heading" data-animate="fade-in">
+        <h2>Projects</h2>
+        <p class="section__lede">A couple of things I've built recently.</p>
+      </div>
+
+      <div class="projects__grid">
+
+        <article class="project-card" data-animate="fade-in">
+          <div class="project-card__media">
+            <img src="/public/images/blog.jpg" alt="Screenshot of the Blog Post project" loading="lazy" class="blogpng">
+          </div>
+          <div class="project-card__body">
+            <h3>Blog, Post, Dashboard...</h3>
+            <p>A clean, readable blog layout built to practice semantic structure, responsive typography and vanilla JavaScript interactions.</p>
+            <ul class="tech-badges">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="project-card__actions">
+              <a href="https://github.com/yahiatourabi58-hash/blog-post" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--outline">GitHub</a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--primary">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-animate="fade-in">
+          <div class="project-card__media">
+            <img src="/public/images/weather.jpg" alt="Screenshot of the Weather App project" loading="lazy" width="1200" height="750">
+          </div>
+          <div class="project-card__body">
+            <h3>Weather App</h3>
+            <p>A weather lookup app that fetches live forecast data from a public API and renders it in a simple, responsive interface.</p>
+            <ul class="tech-badges">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="project-card__actions">
+              <a href="https://github.com/yahiatourabi58-hash/weather-app" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--outline">GitHub</a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--small btn--primary">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="education" id="education">
+    <div class="section__inner">
+      <div class="section__heading" data-animate="fade-in">
+        <h2>Education</h2>
+        <p class="section__lede">My academic background.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline__item" data-animate="fade-in">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <p class="timeline__period">2024</p>
+            <h3>Baccalaureate — Science Physics and Chemistry</h3>
+            <p class="timeline__org">Lycée Sidi Driss, Tangier, Morocco</p>
+            <p>Completed my Baccalaureate in Science Physics and Chemistry in 2024, 
+              which gave me a strong foundation in scientific thinking, problem solving,
+               and analytical skills.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-animate="fade-in">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <p class="timeline__period">2025 — Present</p>
+            <h3>Digital Development — Full Stack</h3>
+            <p class="timeline__org">ISTA NTIC, Tangier, Morocco — OFPPT</p>
+            <p>Currently studying Digital Development at OFPPT, specializing in 
+              Full Stack development. I'm developing my skills in front-end and back-end
+               technologies and working on practical projects as part of my training.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+ <!-- ============ EXPERIENCE ============ -->
+<section class="experience" id="experience">
+  <div class="section__inner">
+    <div class="section__heading" data-animate="fade-in">
+      <h2>Experience</h2>
+      <p class="section__lede">My professional journey & upcoming roles.</p>
+    </div>
+
+    <ol class="timeline">
+      <li class="timeline__item" data-animate="fade-in">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <p class="timeline__period">Stage (1 Month)</p>
+          <h3>Full-Stack Developer Intern</h3>
+          <p class="timeline__org">L'entreprise CODERS </p>
+          <p>Preparing to work on web development projects, database integration, and feature updates using PHP and modern frontend tools.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="section__inner">
+      <div class="section__heading" data-animate="fade-in">
+        <h2>Contact</h2>
+        <p class="section__lede">Have a project in mind, or just want to say hello?</p>
+      </div>
+
+      <div class="contact__grid">
+        <div class="contact__info" data-animate="fade-in">
+          <a href="mailto:yahyatourabi627@gmail.com" class="contact__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.3 5.8a.75.75 0 0 0 .93 0L19.8 6H4.2Z"/></svg>
+            <span>yahyatourabi627@gmail.com</span>
+          </a>
+          <a href="https://github.com/yahiatourabi58-hash" target="_blank" rel="noopener noreferrer" class="contact__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.66.5 12.03c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.77.12 3.06.74.8 1.19 1.83 1.19 3.09 0 4.44-2.7 5.42-5.27 5.7.42.36.78 1.07.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A10.53 10.53 0 0 0 23.5 12.03C23.5 5.66 18.35.5 12 .5Z"/></svg>
+            <span>github.com/yahiatourabi58-hash</span>
+          </a>
+          <a href="https://www.linkedin.com/in/yahya-tourabi/" target="_blank" rel="noopener noreferrer" class="contact__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+            <span>linkedin.com/in/yahya-tourabi</span>
+          </a>
+        </div>
+
+        <form class="contact__form" id="contactForm" data-animate="fade-in" novalidate>
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="section__inner footer__inner">
+    <p>&copy; <span id="year"></span> Yahya Tourabi. All rights reserved.</p>
+    <div class="footer__socials">
+      <a href="https://github.com/yahiatourabi58-hash" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+      <a href="https://www.linkedin.com/in/yahya-tourabi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="m12 6-7 7 1.41 1.41L11 9.83V19h2V9.83l4.59 4.58L19 12l-7-7Z"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
