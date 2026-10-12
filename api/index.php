@@ -1659,7 +1659,7 @@ input, textarea { font-family: inherit; }
 
       <div  class="hero__photo-wrap" data-animate="fade-in">
 
-        <img src="../public/images/me.jpg" alt="Portrait of Yahya Tourabi " class="hero__photo" >
+        <img src="/portfolio/public/images/me.jpg" alt="Portrait of Yahya Tourabi " class="hero__photo" >
 
       </div>
 
@@ -1909,7 +1909,7 @@ input, textarea { font-family: inherit; }
 
           <div class="project-card__media">
 
-            <img src="../public/images/ajile.jpeg" alt="Screenshot of some agile exercices" loading="lazy" class="blogpng">
+            <img src="/portfolio/public/images/ajile.jpeg" alt="Screenshot of some agile exercices" loading="lazy" class="blogpng">
 
           </div>
 
@@ -1929,7 +1929,7 @@ input, textarea { font-family: inherit; }
 
           <div class="project-card__media">
 
-            <img src="../public/images/blog.jpg" alt="Screenshot of the Blog Post project" loading="lazy" class="blogpng">
+            <img src="/portfolio/public/images/blog.jpg" alt="Screenshot of the Blog Post project" loading="lazy" class="blogpng">
 
           </div>
 
@@ -1973,7 +1973,7 @@ input, textarea { font-family: inherit; }
 
           <div class="project-card__media">
 
-            <img src="../public/images/weather.jpg" alt="Screenshot of the Weather App project" loading="lazy" width="1200" height="750">
+            <img src="/portfolio/public/images/weather.jpg" alt="Screenshot of the Weather App project" loading="lazy" width="1200" height="750">
 
           </div>
 
