@@ -1917,7 +1917,7 @@ input, textarea { font-family: inherit; }
 
             <h3>Agile exercices</h3>
 
-            <p>A clean, readable blog layout built to practice semantic structure, responsive typography and vanilla JavaScript interactions.</p>
+            <p>Une collection d’exercices et de questions couvrant les notions essentielles du module Approche Agile, conçue pour faciliter la révision et la préparation aux examens de l’OFPPT.</p>
 
           </div>
 
