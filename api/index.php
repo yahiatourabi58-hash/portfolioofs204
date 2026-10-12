@@ -1909,7 +1909,7 @@ input, textarea { font-family: inherit; }
 
           <div class="project-card__media">
 
-            <img src="/portfolio/public/images/ajile.jpeg" alt="Screenshot of some agile exercices" loading="lazy" class="blogpng">
+            <img src="/images/me.jpg" alt="Screenshot of some agile exercices" loading="lazy" class="blogpng">
 
           </div>
 
