@@ -1659,7 +1659,7 @@ input, textarea { font-family: inherit; }
 
       <div  class="hero__photo-wrap" data-animate="fade-in">
 
-        <img src="/portfolio/public/images/me.jpg" alt="Portrait of Yahya Tourabi " class="hero__photo" >
+        <img src="/images/me.jpg" alt="Portrait of Yahya Tourabi " class="hero__photo" >
 
       </div>
 
@@ -1909,7 +1909,7 @@ input, textarea { font-family: inherit; }
 
           <div class="project-card__media">
 
-            <img src="/images/me.jpg" alt="Screenshot of some agile exercices" loading="lazy" class="blogpng">
+            <img src="/images/ajile.jpeg" alt="Screenshot of some agile exercices" loading="lazy" class="blogpng">
 
           </div>
 
@@ -1917,7 +1917,7 @@ input, textarea { font-family: inherit; }
 
             <h3>Agile exercices</h3>
 
-            <p>Une collection d’exercices et de questions couvrant les notions essentielles du module Approche Agile, conçue pour faciliter la révision et la préparation aux examens de l’OFPPT.</p>
+            <p>A collection of exercises and questions covering the essential concepts of the Agile Approach module, designed to facilitate revision and preparation for OFPPT exams.</p>
 
           </div>
 
@@ -1929,7 +1929,7 @@ input, textarea { font-family: inherit; }
 
           <div class="project-card__media">
 
-            <img src="/portfolio/public/images/blog.jpg" alt="Screenshot of the Blog Post project" loading="lazy" class="blogpng">
+            <img src="/images/blog.jpg" alt="Screenshot of the Blog Post project" loading="lazy" class="blogpng">
 
           </div>
 
@@ -1973,7 +1973,7 @@ input, textarea { font-family: inherit; }
 
           <div class="project-card__media">
 
-            <img src="/portfolio/public/images/weather.jpg" alt="Screenshot of the Weather App project" loading="lazy" width="1200" height="750">
+            <img src="/images/weather.jpg" alt="Screenshot of the Weather App project" loading="lazy" width="1200" height="750">
 
           </div>
 
