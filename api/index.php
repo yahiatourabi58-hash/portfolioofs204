@@ -915,13 +915,18 @@ input, textarea { font-family: inherit; }
 
   display: grid;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 28px;
 
+  align-items: stretch;
 }
 
 .project-card {
+
+  min-width: 0;
+
+  height: 100%;
 
   background: var(--color-surface);
 
@@ -1043,6 +1048,12 @@ input, textarea { font-family: inherit; }
 
 }
 
+
+@media (max-width: 768px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 
 /* ============================================================
@@ -1877,6 +1888,8 @@ input, textarea { font-family: inherit; }
 
           <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" width="34" height="34" loading="lazy"><span>Figma</span></li>
 
+          <li class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" width="34" height="34" loading="lazy"><span>MySQL</span></li>
+
         </ul>
 
       </div>
@@ -1905,7 +1918,7 @@ input, textarea { font-family: inherit; }
 
       <div class="projects__grid">
 
-                <article class="project-card" data-animate="fade-in">
+        <article class="project-card" data-animate="fade-in">
 
           <div class="project-card__media">
 
@@ -1922,8 +1935,41 @@ input, textarea { font-family: inherit; }
           </div>
 
         </article>
+<!-- new -->
+        <article class="project-card" data-animate="fade-in">
 
+          <div class="project-card__media">
 
+            <img src="/images/calc.png" alt="Screenshot a " loading="lazy" class="blogpng">
+
+          </div>
+
+          <div class="project-card__body">
+
+              <h3>Smart calculator</h3>
+
+              <p>A simple calculator built with HTML, CSS, and JavaScript that performs basic arithmetic operations in a clean, responsive interface.</p>
+
+              <ul class="tech-badges">
+
+                <li>HTML</li>
+
+                <li>CSS</li>
+
+                <li>JavaScript</li>
+
+              </ul>
+
+              <div class="project-card__actions">
+
+                <a href="https://github.com/yahiatourabi58-hash/blog-post" target="\_blank" rel="noopener noreferrer" class="btn btn--small btn--outline">GitHub</a>
+
+                <a href="#" target="\_blank" rel="noopener noreferrer" class="btn btn--small btn--primary">Live Demo</a>
+
+              </div>
+          </div>
+
+        </article>
 
         <article class="project-card" data-animate="fade-in">
 
@@ -1960,15 +2006,7 @@ input, textarea { font-family: inherit; }
           </div>
 
         </article>
-
-        <article>
-
-
-
-        </article>
-
-
-
+        
         <article class="project-card" data-animate="fade-in">
 
           <div class="project-card__media">
