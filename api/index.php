@@ -38,6 +38,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_submit'])) {
         }
     }
 }
+
+$ateliers = [];
+for ($i = 1; $i <= 6; $i++) {
+    $ateliers[$i] = [
+        'title' => 'Atelier ' . $i,
+        'description' => 'Add a short description of this atelier and what you learned or built.',
+    ];
+}
+
+$atelierId = filter_input(INPUT_GET, 'atelier', FILTER_VALIDATE_INT);
+$currentAtelier = ($atelierId !== null && $atelierId !== false && isset($ateliers[$atelierId]))
+    ? $ateliers[$atelierId]
+    : null;
 ?>
 
 <!DOCTYPE html>
@@ -275,7 +288,7 @@ input, textarea { font-family: inherit; }
 
 }
 
-.about, .skills, .projects, .blog, .education, .experience, .contact {
+.about, .skills, .projects, .ateliers, .blog, .education, .experience, .contact {
 
   padding: 96px 0;
 
@@ -285,7 +298,7 @@ input, textarea { font-family: inherit; }
 
 .skills { background: var(--color-bg-alt); padding-bottom: 96px; }
 
-.projects { background: var(--color-bg); }
+.projects, .ateliers { background: var(--color-bg); }
 
 .blog { background: var(--color-bg-alt); }
 
@@ -1056,6 +1069,141 @@ input, textarea { font-family: inherit; }
 }
 
 
+
+/* ============================================================
+   ATELIERS
+   ============================================================ */
+.ateliers { background: var(--color-bg); padding: 96px 0; }
+.ateliers__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.atelier-card {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: transform var(--dur-med) var(--ease),
+              border-color var(--dur-fast) var(--ease),
+              box-shadow var(--dur-med) var(--ease);
+}
+.atelier-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-border-strong);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+}
+.atelier-card__visual {
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(59,130,246,.24), transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(249,115,22,.20), transparent 42%),
+    var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+}
+.atelier-card__visual span {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  color: rgba(231,235,241,.9);
+}
+.atelier-card__body { padding: 24px; }
+.atelier-card__body h3 { font-size: 1.2rem; font-weight: 600; }
+.atelier-card__body p {
+  margin-top: 10px;
+  color: var(--color-text-muted);
+  font-size: .94rem;
+  min-height: 3.2em;
+}
+.atelier-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--color-blue);
+  font-size: .9rem;
+  font-weight: 600;
+}
+.atelier-card__link:hover { color: var(--color-orange); }
+
+.atelier-detail {
+  min-height: 100vh;
+  padding: 56px 24px 90px;
+  background:
+    radial-gradient(ellipse 650px 420px at 10% 0%, rgba(59,130,246,.12), transparent 65%),
+    var(--color-bg);
+}
+.atelier-detail__inner { max-width: var(--max-width); margin: 0 auto; }
+.atelier-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 44px;
+}
+.atelier-detail__back:hover { color: var(--color-orange); }
+.atelier-detail__eyebrow {
+  color: var(--color-orange);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.atelier-detail__title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  margin-bottom: 16px;
+}
+.atelier-detail__intro {
+  max-width: 720px;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+.atelier-detail__content {
+  margin-top: 52px;
+  padding: 28px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.atelier-detail__content h2 { font-size: 1.35rem; margin-bottom: 12px; }
+.atelier-detail__content p { color: var(--color-text-muted); }
+.atelier-detail__images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+.atelier-image-slot {
+  min-height: 230px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 20px;
+  text-align: center;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+}
+.atelier-image-slot strong { color: var(--color-text); }
+.atelier-image-slot span { font-size: .85rem; }
+.atelier-detail__footer { margin-top: 34px; }
+
+@media (max-width: 960px) {
+  .ateliers__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .ateliers { padding: 64px 0; }
+  .ateliers__grid, .atelier-detail__images { grid-template-columns: 1fr; }
+  .atelier-detail { padding: 36px 18px 64px; }
+  .atelier-detail__content { padding: 22px; }
+}
+
 /* ============================================================
 
    BLOG
@@ -1576,7 +1724,7 @@ input, textarea { font-family: inherit; }
 
 
 
-  .about, .skills, .projects, .blog, .education, .experience, .contact { padding: 64px 0; }
+  .about, .skills, .projects, .ateliers, .blog, .education, .experience, .contact { padding: 64px 0; }
 
   .blog__grid { grid-template-columns: 1fr; }
 
@@ -1606,6 +1754,60 @@ input, textarea { font-family: inherit; }
 
 <body>
 
+<?php if ($currentAtelier !== null): ?>
+  <main class="atelier-detail" id="atelier-detail">
+    <div class="atelier-detail__inner">
+      <a class="atelier-detail__back" href="index.php#ateliers">
+        <span aria-hidden="true">←</span> Back to all ateliers
+      </a>
+
+      <p class="atelier-detail__eyebrow">MY LEARNING JOURNEY / ATELIER <?= (int)$atelierId ?></p>
+      <h1 class="atelier-detail__title"><?= htmlspecialchars($currentAtelier['title'], ENT_QUOTES, 'UTF-8') ?></h1>
+      <p class="atelier-detail__intro">
+        Add a short introduction explaining the goal of this atelier, the work you completed,
+        and the main skills or concepts you learned.
+      </p>
+
+      <section class="atelier-detail__content">
+        <h2>About this atelier</h2>
+        <p>
+          Write your explanation here. You can describe the objective, the steps you followed,
+          the tools or technologies you used, and what you learned from this activity.
+        </p>
+
+        <div class="atelier-detail__images" aria-label="Image spaces for this atelier">
+          <?php for ($imageNumber = 1; $imageNumber <= 4; $imageNumber++): ?>
+            <div class="atelier-image-slot">
+              <strong>Image <?= $imageNumber ?></strong>
+              <span>Add your screenshot or photo here later.</span>
+            </div>
+          <?php endfor; ?>
+        </div>
+      </section>
+
+      <div class="atelier-detail__footer">
+        <a class="btn btn--outline" href="index.php#ateliers">← Back to Ateliers</a>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="section__inner footer__inner">
+      <p>&copy; <span id="year"></span> Yahya Tourabi. All rights reserved.</p>
+      <div class="footer__socials">
+        <a href="https://github.com/yahiatourabi58-hash" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/yahya-tourabi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const yearElement = document.getElementById('year');
+    if (yearElement) yearElement.textContent = new Date().getFullYear();
+  </script>
+  </body>
+  </html>
+  <?php exit; ?>
+<?php endif; ?>
+
 
 
 <a class="skip-link" href="#main">Skip to content</a>
@@ -1632,7 +1834,7 @@ input, textarea { font-family: inherit; }
 
         <li><a href="#skills" class="nav-link">Skills</a></li>
 
-        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#ateliers" class="nav-link">Ateliers</a></li>
 
         <li><a href="#education" class="nav-link">Education</a></li>
 
@@ -1698,7 +1900,7 @@ input, textarea { font-family: inherit; }
 
         <div class="hero__actions">
 
-          <a href="#projects" class="btn btn--primary">View My Projects</a>
+          <a href="#ateliers" class="btn btn--primary">View My Ateliers</a>
 
           <a href="#contact" class="btn btn--outline">Contact Me</a>
 
@@ -1900,158 +2102,108 @@ input, textarea { font-family: inherit; }
 
 
 
-  <!-- ============ PROJECTS ============ -->
-
-  <section class="projects" id="projects">
-
+  <!-- ============ ATELIERS ============ -->
+  
+<!-- ============ ATELIERS ============ -->
+<section class="ateliers" id="ateliers">
     <div class="section__inner">
 
-      <div class="section__heading" data-animate="fade-in">
-
-        <h2>Projects</h2>
-
-        <p class="section__lede">A couple of things I've built recently.</p>
-
-      </div>
-
-
-
-      <div class="projects__grid">
-
-        <article class="project-card" data-animate="fade-in">
-
-          <div class="project-card__media">
-
-            <img src="/images/ajile.jpeg" alt="Screenshot of some agile exercices" loading="lazy" class="blogpng">
-
-          </div>
-
-          <div class="project-card__body">
-
-            <h3>Agile exercices</h3>
-
-            <p>A collection of exercises and questions covering the essential concepts of the Agile Approach module, designed to facilitate revision and preparation for OFPPT exams.</p>
-
-          </div>
-
-        </article>
-<!-- new -->
-        <article class="project-card" data-animate="fade-in">
-
-          <div class="project-card__media">
-
-            <img src="/images/calc.png" alt="Screenshot a " loading="lazy" class="blogpng">
-
-          </div>
-
-          <div class="project-card__body">
-
-              <h3>Smart calculator</h3>
-
-              <p>A simple calculator built with HTML, CSS, and JavaScript that performs basic arithmetic operations in a clean, responsive interface.</p>
-
-              <ul class="tech-badges">
-
-                <li>HTML</li>
-
-                <li>CSS</li>
-
-                <li>JavaScript</li>
-
-              </ul>
-
-              <div class="project-card__actions">
-
-                <a href="https://github.com/yahiatourabi58-hash/blog-post" target="\_blank" rel="noopener noreferrer" class="btn btn--small btn--outline">GitHub</a>
-
-                <a href="#" target="\_blank" rel="noopener noreferrer" class="btn btn--small btn--primary">Live Demo</a>
-
-              </div>
-          </div>
-
-        </article>
-
-        <article class="project-card" data-animate="fade-in">
-
-          <div class="project-card__media">
-
-            <img src="/images/blog.jpg" alt="Screenshot of the Blog Post project" loading="lazy" class="blogpng">
-
-          </div>
-
-          <div class="project-card__body">
-
-            <h3>Blog, Post, Dashboard...</h3>
-
-            <p>A clean, readable blog layout built to practice semantic structure, responsive typography and vanilla JavaScript interactions.</p>
-
-            <ul class="tech-badges">
-
-              <li>HTML</li>
-
-              <li>CSS</li>
-
-              <li>JavaScript</li>
-
-            </ul>
-
-            <div class="project-card__actions">
-
-              <a href="https://github.com/yahiatourabi58-hash/blog-post" target="\_blank" rel="noopener noreferrer" class="btn btn--small btn--outline">GitHub</a>
-
-              <a href="#" target="\_blank" rel="noopener noreferrer" class="btn btn--small btn--primary">Live Demo</a>
-
-            </div>
-
-          </div>
-
-        </article>
-        
-        <article class="project-card" data-animate="fade-in">
-
-          <div class="project-card__media">
-
-            <img src="/images/weather.jpg" alt="Screenshot of the Weather App project" loading="lazy" width="1200" height="750">
-
-          </div>
-
-          <div class="project-card__body">
-
-            <h3>Weather App</h3>
-
-            <p>A weather lookup app that fetches live forecast data from a public API and renders it in a simple, responsive interface.</p>
-
-            <ul class="tech-badges">
-
-              <li>HTML</li>
-
-              <li>CSS</li>
-
-              <li>JavaScript</li>
-
-            </ul>
-
-            <div class="project-card__actions">
-
-              <a href="https://github.com/yahiatourabi58-hash/weather-app" target="\_blank" rel="noopener noreferrer" class="btn btn--small btn--outline">GitHub</a>
-
-              <a href="#" target="\_blank" rel="noopener noreferrer" class="btn btn--small btn--primary">Live Demo</a>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-
-      </div>
-
+        <div class="section__heading" data-animate="fade-in">
+            <h2>My Ateliers</h2>
+            <p class="section__lede">
+                A collection of practical workshops, exercises and what I learned from them.
+            </p>
+        </div>
+
+        <div class="ateliers__grid">
+
+            <!-- ATELIER 1 -->
+            <article class="atelier-card">
+                <div class="atelier-card__visual">
+                    <h3>Atelier 1</h3>
+                </div>
+                <div class="atelier-card__body">
+                    <h3>Atelier 1</h3>
+                    <p>Discover my first atelier.</p>
+                    <a class="atelier-card__link" href="atelier1.html">
+                        Explore atelier →
+                    </a>
+                </div>
+            </article>
+
+            <!-- ATELIER 2 -->
+            <article class="atelier-card">
+                <div class="atelier-card__visual">
+                    <h3>Atelier 2</h3>
+                </div>
+                <div class="atelier-card__body">
+                    <h3>Atelier 2</h3>
+                    <p>Discover my second atelier.</p>
+                    <a class="atelier-card__link" href="atelier2.html">
+                        Explore atelier →
+                    </a>
+                </div>
+            </article>
+
+            <!-- ATELIER 3 -->
+            <article class="atelier-card">
+                <div class="atelier-card__visual">
+                    <h3>Atelier 3</h3>
+                </div>
+                <div class="atelier-card__body">
+                    <h3>Atelier 3</h3>
+                    <p>Discover my third atelier.</p>
+                    <a class="atelier-card__link" href="atelier3.html">
+                        Explore atelier →
+                    </a>
+                </div>
+            </article>
+
+            <!-- ATELIER 4 -->
+            <article class="atelier-card">
+                <div class="atelier-card__visual">
+                    <h3>Atelier 4</h3>
+                </div>
+                <div class="atelier-card__body">
+                    <h3>Atelier 4</h3>
+                    <p>Discover my fourth atelier.</p>
+                    <a class="atelier-card__link" href="atelier4.html">
+                        Explore atelier →
+                    </a>
+                </div>
+            </article>
+
+            <!-- ATELIER 5 -->
+            <article class="atelier-card">
+                <div class="atelier-card__visual">
+                    <h3>Atelier 5</h3>
+                </div>
+                <div class="atelier-card__body">
+                    <h3>Atelier 5</h3>
+                    <p>Discover my fifth atelier.</p>
+                    <a class="atelier-card__link" href="atelier5.html">
+                        Explore atelier →
+                    </a>
+                </div>
+            </article>
+
+            <!-- ATELIER 6 -->
+            <article class="atelier-card">
+                <div class="atelier-card__visual">
+                    <h3>Atelier 6</h3>
+                </div>
+                <div class="atelier-card__body">
+                    <h3>Atelier 6</h3>
+                    <p>Discover my sixth atelier.</p>
+                    <a class="atelier-card__link" href="atelier6.html">
+                        Explore atelier →
+                    </a>
+                </div>
+            </article>
+
+        </div>
     </div>
-
-  </section>
-
-
+</section>
 
   <!-- ============ EDUCATION ============ -->
 
