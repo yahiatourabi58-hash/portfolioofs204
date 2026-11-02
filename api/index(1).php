@@ -39,13 +39,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_submit'])) {
     }
 }
 
-$ateliers = [];
-for ($i = 1; $i <= 6; $i++) {
-    $ateliers[$i] = [
-        'title' => 'Atelier ' . $i,
-        'description' => 'Add a short description of this atelier and what you learned or built.',
-    ];
-}
+$ateliers = [
+    1 => [
+        'title' => 'Atelier 1',
+        'description' => 'Some exercices of Aproche Agile.',
+        'images' => ['mg1.jpeg', 'mg2.jpeg', 'mg3.jpeg'],
+    ],
+    2 => [
+        'title' => 'Atelier 2',
+        'description' => 'Some exercices of Aproche Agile.',
+        'images' => ['atelier2.jpeg', 'atelier22.jpeg'],
+    ],
+    3 => [
+        'title' => 'Atelier 3',
+        'description' => 'Some exercices of git i do them in word.',
+        'images' => ['atelier3.png', 'atelier33.png', 'atelier333.png', 'atelier3333.png', 'atelierP5.png'],
+    ],
+    4 => [
+        'title' => 'Atelier 4',
+        'description' => 'Some exercices of git i do them in word.',
+        'images' => ['at4.png', 'at44.png', 'at444.png', 'at4444.png'],
+    ],
+    5 => [
+        'title' => 'Atelier 5',
+        'description' => 'Exercice of git.',
+        'images' => ['atelier5.jpeg'],
+    ],
+    6 => [
+        'title' => 'Atelier 6',
+        'description' => 'Here is what I learned in this atelier.',
+        'images' => ['image1.jpg', 'image2.jpg', 'image3.jpg'], // verifie le dossier/noms reels
+    ],
+];
+
+// Local (XAMPP) : les images sont dans public/images ; sur Vercel, public/ est servi a la racine (/images)
+$host = $_SERVER['HTTP_HOST'] ?? '';
+$isLocal = str_starts_with($host, 'localhost') || str_starts_with($host, '127.0.0.1');
+$imagesBase = $isLocal ? 'public/images' : '/images';
 
 $atelierId = filter_input(INPUT_GET, 'atelier', FILTER_VALIDATE_INT);
 $currentAtelier = ($atelierId !== null && $atelierId !== false && isset($ateliers[$atelierId]))
@@ -1190,6 +1220,12 @@ input, textarea { font-family: inherit; }
   background: var(--color-bg-alt);
   color: var(--color-text-muted);
 }
+.atelier-detail__images img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
 .atelier-image-slot strong { color: var(--color-text); }
 .atelier-image-slot span { font-size: .85rem; }
 .atelier-detail__footer { margin-top: 34px; }
@@ -1757,36 +1793,27 @@ input, textarea { font-family: inherit; }
 <?php if ($currentAtelier !== null): ?>
   <main class="atelier-detail" id="atelier-detail">
     <div class="atelier-detail__inner">
-      <a class="atelier-detail__back" href="index.php#ateliers">
+      <a class="atelier-detail__back" href="./#ateliers">
         <span aria-hidden="true">←</span> Back to all ateliers
       </a>
 
       <p class="atelier-detail__eyebrow">MY LEARNING JOURNEY / ATELIER <?= (int)$atelierId ?></p>
       <h1 class="atelier-detail__title"><?= htmlspecialchars($currentAtelier['title'], ENT_QUOTES, 'UTF-8') ?></h1>
-      <p class="atelier-detail__intro">
-        Add a short introduction explaining the goal of this atelier, the work you completed,
-        and the main skills or concepts you learned.
-      </p>
+      <p class="atelier-detail__intro"><?= htmlspecialchars($currentAtelier['description'], ENT_QUOTES, 'UTF-8') ?></p>
 
       <section class="atelier-detail__content">
-        <h2>About this atelier</h2>
-        <p>
-          Write your explanation here. You can describe the objective, the steps you followed,
-          the tools or technologies you used, and what you learned from this activity.
-        </p>
-
-        <div class="atelier-detail__images" aria-label="Image spaces for this atelier">
-          <?php for ($imageNumber = 1; $imageNumber <= 4; $imageNumber++): ?>
-            <div class="atelier-image-slot">
-              <strong>Image <?= $imageNumber ?></strong>
-              <span>Add your screenshot or photo here later.</span>
-            </div>
-          <?php endfor; ?>
+        <h2>Images</h2>
+        <div class="atelier-detail__images">
+          <?php foreach ($currentAtelier['images'] as $n => $file): ?>
+            <img src="<?= $imagesBase ?>/atelier<?= (int)$atelierId ?>/<?= htmlspecialchars($file, ENT_QUOTES, 'UTF-8') ?>"
+                 alt="<?= htmlspecialchars($currentAtelier['title'], ENT_QUOTES, 'UTF-8') ?> image <?= $n + 1 ?>"
+                 loading="lazy">
+          <?php endforeach; ?>
         </div>
       </section>
 
       <div class="atelier-detail__footer">
-        <a class="btn btn--outline" href="index.php#ateliers">← Back to Ateliers</a>
+        <a class="btn btn--outline" href="./#ateliers">← Back to Ateliers</a>
       </div>
     </div>
   </main>
@@ -2125,7 +2152,7 @@ input, textarea { font-family: inherit; }
                 <div class="atelier-card__body">
                     <h3>Atelier 1</h3>
                     <p>Discover my first atelier.</p>
-                    <a class="atelier-card__link" href="atelier1.html">
+                    <a class="atelier-card__link" href="?atelier=1">
                         Explore atelier →
                     </a>
                 </div>
@@ -2139,7 +2166,7 @@ input, textarea { font-family: inherit; }
                 <div class="atelier-card__body">
                     <h3>Atelier 2</h3>
                     <p>Discover my second atelier.</p>
-                    <a class="atelier-card__link" href="atelier2.html">
+                    <a class="atelier-card__link" href="?atelier=2">
                         Explore atelier →
                     </a>
                 </div>
@@ -2153,7 +2180,7 @@ input, textarea { font-family: inherit; }
                 <div class="atelier-card__body">
                     <h3>Atelier 3</h3>
                     <p>Discover my third atelier.</p>
-                    <a class="atelier-card__link" href="atelier3.html">
+                    <a class="atelier-card__link" href="?atelier=3">
                         Explore atelier →
                     </a>
                 </div>
@@ -2167,7 +2194,7 @@ input, textarea { font-family: inherit; }
                 <div class="atelier-card__body">
                     <h3>Atelier 4</h3>
                     <p>Discover my fourth atelier.</p>
-                    <a class="atelier-card__link" href="atelier4.html">
+                    <a class="atelier-card__link" href="?atelier=4">
                         Explore atelier →
                     </a>
                 </div>
@@ -2181,7 +2208,7 @@ input, textarea { font-family: inherit; }
                 <div class="atelier-card__body">
                     <h3>Atelier 5</h3>
                     <p>Discover my fifth atelier.</p>
-                    <a class="atelier-card__link" href="atelier5.html">
+                    <a class="atelier-card__link" href="?atelier=5">
                         Explore atelier →
                     </a>
                 </div>
@@ -2195,7 +2222,7 @@ input, textarea { font-family: inherit; }
                 <div class="atelier-card__body">
                     <h3>Atelier 6</h3>
                     <p>Discover my sixth atelier.</p>
-                    <a class="atelier-card__link" href="atelier6.html">
+                    <a class="atelier-card__link" href="?atelier=6">
                         Explore atelier →
                     </a>
                 </div>
