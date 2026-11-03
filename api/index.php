@@ -67,8 +67,12 @@ $ateliers = [
     ],
     6 => [
         'title' => 'Atelier 6',
-        'description' => 'Here is what I learned in this atelier.',
-        'images' => ['image1.jpg', 'image2.jpg', 'image3.jpg'], // verifie le dossier/noms reels
+        'description' => 'Full Stack mini-app to manage trainees: PHP form, MySQL database on Aiven, photos stored on Cloudinary, deployed on Vercel from GitHub.',
+        'images' => ['1-formulaire.png', '2-liste.png', '3-aiven.png'], // dossier : public/images/atelier6/
+        'links' => [
+            'Live demo' => 'https://atelier-stagaires-almw.vercel.app/',
+            'GitHub repo' => 'https://github.com/yahiatourabi58-hash/atelier-stagaires',
+        ],
     ],
 ];
 
@@ -1812,6 +1816,16 @@ input, textarea { font-family: inherit; }
         </div>
       </section>
 
+      <?php if (!empty($currentAtelier['links'])): ?>
+      <section class="atelier-detail__content">
+        <h2>Links</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;">
+          <?php $first = true; foreach ($currentAtelier['links'] as $label => $url): ?>
+            <a class="btn <?= $first ? 'btn--primary' : 'btn--outline' ?>" href="<?= htmlspecialchars($url, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?> ↗</a>
+          <?php $first = false; endforeach; ?>
+        </div>
+      </section>
+      <?php endif; ?>
       <div class="atelier-detail__footer">
         <a class="btn btn--outline" href="./#ateliers">← Back to Ateliers</a>
       </div>
@@ -2221,7 +2235,7 @@ input, textarea { font-family: inherit; }
                 </div>
                 <div class="atelier-card__body">
                     <h3>Atelier 6</h3>
-                    <p>Discover my sixth atelier.</p>
+                    <p>Trainee management app: PHP, MySQL (Aiven), Cloudinary &amp; Vercel.</p>
                     <a class="atelier-card__link" href="?atelier=6">
                         Explore atelier →
                     </a>
